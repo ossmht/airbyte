@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "destination-sftp-json"
+version = "0.4.26"
+description = "Destination implementation for Duckdb."
+authors = ["Simon Späti, Airbyte"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.8"
+airbyte-cdk = "^0.51.6"
+smart_open = "5.1.0"
+paramiko = "2.10.1"
+
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+destination-sftp-json = "destination_sftp_json.run:run"
