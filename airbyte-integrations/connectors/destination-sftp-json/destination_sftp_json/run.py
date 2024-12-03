@@ -1,9 +1,10 @@
 import sys
 
-from airbyte_cdk.entrypoint import launch
 from destination_sftp_json import DestinationSftpJson
 
 
 def run():
-    destination = DestinationSftpJson()
-    launch(destination, sys.argv[1:])
+    DestinationSftpJson().run(sys.argv[1:])
+
+if __name__ == "__main__":
+    run()
