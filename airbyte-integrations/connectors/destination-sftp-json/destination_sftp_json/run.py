@@ -6,4 +6,4 @@ from destination_sftp_json import DestinationSftpJson
 
 def run():
     destination = DestinationSftpJson()
-    launch(sodestinationurce, sys.argv[1:])
+    launch(destination, sys.argv[1:])
