@@ -20,4 +20,5 @@ setup(
     extras_require={
         "tests": TEST_REQUIREMENTS,
     },
+    scripts=['destination_sftp_json/run.py']
 )
