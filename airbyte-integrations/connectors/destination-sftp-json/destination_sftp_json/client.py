@@ -10,6 +10,7 @@ from typing import Dict, List, TextIO
 
 import paramiko
 import smart_open
+import urllib
 
 
 @contextlib.contextmanager
@@ -60,7 +61,9 @@ class SftpClient:
 
     def _get_uri(self, stream: str) -> str:
         path = self._get_path(stream)
-        return f"sftp://{self.username}:{self.password}@{self.host}:{self.port}/{path}"
+        # Because smart_open expects a quoted password and fails to parse the URL if password contains a '#'
+        # return f"sftp://{self.username}:{self.password}@{self.host}:{self.port}/{path}"
+        return f"sftp://{self.username}:{urllib.parse.quote(self.password)}@{self.host}:{self.port}/{path}"
 
     def _open(self, stream: str) -> TextIO:
         uri = self._get_uri(stream)
